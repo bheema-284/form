@@ -52,7 +52,7 @@ function BasicForm() {
   //     }),
   //   };
   //   fetch(url, requestOptions)
-  //     .then((response) => console.log('Submitted successfully'))
+  //     .then((response) =>alert('Submitted successfully'); console.log('Submitted successfully'))
   //     .catch((error) => console.log('Form submit error', error));
   // };
 
@@ -70,6 +70,7 @@ function BasicForm() {
       password,
     };
     axios.post(url, requestOptions).then(() => {
+      alert('Submitted successfully');
       console.log('Submitted successfully');
     });
   };
