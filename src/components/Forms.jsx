@@ -1,70 +1,167 @@
-import React from 'react';
+import axios from 'axios';
+import { useState, React } from 'react';
+function BasicForm() {
+  const [name, setName] = useState('');
+  const [age, setAge] = useState('');
+  const [address, setAddress] = useState('');
+  const [deportment, setDeportment] = useState('');
+  const [salary, setSalary] = useState('');
+  const [materialstatus, setMaterialstatus] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
+  const handleAgeChange = (event) => {
+    setAge(event.target.value);
+  };
+  const handleAddressChange = (event) => {
+    setAddress(event.target.value);
+  };
+  const handleDeportmentChange = (event) => {
+    setDeportment(event.target.value);
+  };
+  const handleSalaryChange = (event) => {
+    setSalary(event.target.value);
+  };
+  const handleMaterialstatusChange = (event) => {
+    setMaterialstatus(event.target.value);
+  };
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
 
-function Form() {
+  //   const url = 'http://localhost:3001/userss';
+  //   const requestOptions = {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify({
+  //       name,
+  //       age,
+  //       address,
+  //       deportment,
+  //       salary,
+  //       materialstatus,
+  //       email,
+  //       password,
+  //     }),
+  //   };
+  //   fetch(url, requestOptions)
+  //     .then((response) => console.log('Submitted successfully'))
+  //     .catch((error) => console.log('Form submit error', error));
+  // };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const url = 'http://localhost:3001/userss';
+    const requestOptions = {
+      name,
+      age,
+      address,
+      deportment,
+      salary,
+      materialstatus,
+      email,
+      password,
+    };
+    axios.post(url, requestOptions).then(() => {
+      console.log('Submitted successfully');
+    });
+  };
+
   return (
-    <div className="container w-50 text-start">
-      <h2 className="text-center mb-5">Application Form </h2>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label>Name</label>
+        <input
+          type="text"
+          name="name"
+          placeholder="Enter Name"
+          onChange={handleNameChange}
+          value={name}
+        />
+      </div>
+      <div>
+        <label>Age</label>
+        <input
+          type="number"
+          name="age"
+          placeholder="Enter age"
+          onChange={handleAgeChange}
+          value={age}
+        />
+      </div>
+      <div>
+        <label>address</label>
+        <textarea
+          onChange={handleAddressChange}
+          value={address}
+          name="address"
+          cols="25"
+          rows="4"></textarea>
+      </div>
+      <div>
+        <label>Deportment</label>
+        <select
+          onChange={handleDeportmentChange}
+          value={deportment}
+          name="deportment">
+          <option value="Civil">Civil</option>
+          <option value="Mech">Mech</option>
+          <option value="CSE">CSE</option>
+          <option value="ECE">ECE</option>
+          <option value="IT">IT</option>
+        </select>
+      </div>
+      <div>
+        <label>Salary</label>
+        <input
+          type="salary"
+          name="salary"
+          placeholder="Enter salary"
+          onChange={handleSalaryChange}
+          value={salary}
+        />
+      </div>
 
-      <form className="row gx-3 gy-2 align-items-center">
-        <div className="col-sm-3">
-          <label className="">Name</label>
-          <input type="text" className="form-control" placeholder="Name" />
-        </div>
-        <div className="col-sm-3">
-          <label className="">Age</label>
-          <div className="input-group">
-            <input type="text" className="form-control" placeholder="Age" />
-          </div>
-        </div>
-        <div className="col-sm-3">
-          <label className="">Department</label>
-          <select className="form-select">
-            <option selected>Choose...</option>
-            <option value="Science">Science</option>
-            <option value="Math">Math</option>
-            <option value="English">English</option>
-          </select>
-        </div>
-        <div class="col-12">
-          <label for="inputAddress" class="form-label">
-            Address
-          </label>
-          <input
-            type="text"
-            class="form-control"
-            id="inputAddress"
-            placeholder="1234 Main St"
-          />
-        </div>
-        <div className="col-sm-3">
-          <label className="">Salary</label>
-          <div className="input-group">
-            <input type="text" className="form-control" placeholder="Salary" />
-          </div>
-        </div>
-        <div className="col-8">
-          <label className="form-check-label">Martial Status</label>
-          <div className="form-check">
-            <input className="form-check-input" type="checkbox" id="Single" />
-            <label className="form-check-label">Single</label>
-          </div>
-          <div className="form-check">
-            <input className="form-check-input" type="checkbox" id="Married" />
-            <label className="form-check-label">Married</label>
-          </div>
-          <div className="form-check">
-            <input className="form-check-input" type="checkbox" />
-            <label className="form-check-label">Divorced</label>
-          </div>
-        </div>
-        <div className="col-auto">
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
-        </div>
-      </form>
-    </div>
+      <div>
+        <label>Materialstatus</label>
+        <input
+          type="checkbox"
+          name="materialstatus"
+          placeholder="Enter materialstatus"
+          onClick={handleMaterialstatusChange}
+          value={materialstatus}
+        />
+      </div>
+      <div>
+        <label>Email address</label>
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter email"
+          onChange={handleEmailChange}
+          value={email}
+        />
+      </div>
+      <div>
+        <label>Password</label>
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter password"
+          onChange={handlePasswordChange}
+          value={password}
+        />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
   );
 }
 
-export default Form;
+export default BasicForm;
