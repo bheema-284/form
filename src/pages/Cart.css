@@ -1,0 +1,56 @@
+.data{
+  width: 230px;
+  height: 410px;
+ border: 1px solid #00179b;
+ padding-left: 10px;
+ 
+ margin: auto;
+}
+.cart p {
+  text-align: center;
+}
+
+.cart ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cart li {
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid #00179b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#btns{
+  background-color: rgb(114, 77, 21);
+  margin-bottom: 5px;
+  padding: 10px;  
+  height: 30px;   
+}
+
+button{
+background-color: #d26c6c;
+height: 30px;
+width: 180px;
+border-radius: 5px;
+border: transparent;
+}
+button:hover{
+background-color: rgb(224, 176, 117);
+height: 30px;
+width: 180px;
+border-radius: 5px;
+border: transparent;
+
+}
+.sortButtons{
+display: flex;
+  gap: 15px;
+  margin: auto;   
+}
+p{
+  text-align: center;
+}

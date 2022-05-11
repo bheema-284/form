@@ -1,12 +1,21 @@
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import GlobalState from './context/GlobalState';
+import ProductsPage from './pages/Products';
+import CartPage from './pages/Cart';
 import './App.css';
-//import Forms from './components/Forms';
-import BasicForm from './components/Forms';
-function App() {
+
+const App = (props) => {
   return (
-    <div className="App">
-      <BasicForm />
-    </div>
+    <GlobalState>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<ProductsPage />} exact />
+          <Route path="/cart" element={<CartPage />} exact />
+        </Routes>
+      </BrowserRouter>
+    </GlobalState>
   );
-}
+};
 
 export default App;
