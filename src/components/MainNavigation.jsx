@@ -13,8 +13,7 @@ const mainNavigation = (props) => (
         <li>
           <NavLink to={'/womens'}>WOMENS</NavLink>
         </li>
-        <li>
-          {' '}
+        <li>          
           <NavLink to={'/kids'}>KIDS</NavLink>
         </li>
         <li>
